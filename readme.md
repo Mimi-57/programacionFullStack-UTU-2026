@@ -1,0 +1,1 @@
+Las  carpetas estan organizadas de esta manera para poder llevar un seguimiento de las tareas que estoy llevando a cabo en el correr del año. recuerde profe, usted no tiene enemigos, usted tiene amigos :D
