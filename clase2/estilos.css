@@ -1,0 +1,66 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+     background-image: url('img/fondo.jpg');
+     background-size: cover;
+        background-attachment: fixed;
+        opacity: 1.9;
+     
+}
+
+header{
+    background-color: black;
+    opacity: 0.8;
+    height: 10rem;
+}
+
+body{
+    color: white;
+    font-size: 30px;
+}
+body h1{
+    text-align: center;
+    font-size: 8rem;
+    
+}
+
+
+
+nav {
+    background-color: black;
+    opacity: 0.8;
+    height: 10rem;
+}
+nav ul li {
+    float: left;
+    list-style: none;
+    margin: 20px;
+    line-height: 40px;
+
+}
+
+#tabla{
+    background-color: black;
+    opacity: 0.8;
+    margin: 50px;
+    padding: 50px;
+}
+
+footer{
+    background-color: black;
+    padding: 3rem;
+    height: 10rem;
+    text-align: center;
+    line-height: 10rem;
+}
+
+section h3{
+    text-align: center;
+    font-size: 5rem;
+}
+section p{
+    text-align: justify;
+}
+section h2{
+    text-align: center;
+    font-size: 6rem;
+}
