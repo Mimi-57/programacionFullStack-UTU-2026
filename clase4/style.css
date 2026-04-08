@@ -1,0 +1,41 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}   
+
+header { 
+    background-color:midnightblue;
+    text-align: center;
+    color:darkgoldenrod;
+    font-size: 5rem;
+    font-family:fantasy;
+    padding: 5rem;
+}
+
+#primero {
+    background-color: lightsteelblue;
+    text-align:justify;
+    font-size: 1.5rem;
+
+
+}
+
+#segundo {
+    background-color: rgb(92, 7, 7);
+    text-align:justify;
+    font-size: 1.5rem;
+}
+#tercero {
+    background-color: rgb(216, 137, 240);
+    text-align:justify;
+    font-size: 1.5rem;
+}
+footer {
+    background-color: rgb(54, 21, 131);
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    padding: 2rem;
+}
