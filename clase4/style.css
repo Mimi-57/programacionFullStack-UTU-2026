@@ -1,41 +1,213 @@
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}   
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Nunito:wght@400;600&display=swap');
 
-header { 
-    background-color:midnightblue;
-    text-align: center;
-    color:darkgoldenrod;
-    font-size: 5rem;
-    font-family:fantasy;
-    padding: 5rem;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  background-color: #f5f2eb;
+  color: #2c2b28;
+}
+
+
+header {
+  background: linear-gradient(135deg, #26215C 0%, #534AB7 60%, #7F77DD 100%);
+  color: #EEEDFE;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  border-bottom: 4px solid #AFA9EC;
+}
+
+
+main {
+  max-width: 780px;
+  margin: 2.5rem auto;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+
+section {
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1.5px solid transparent;
+}
+
+section h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+section p {
+  margin-bottom: 0.85rem;
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 0.75rem 0;
+  border: 2px solid transparent;
+
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.4s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+
+section img.visible {
+  animation: fadeInUp 0.65s ease forwards;
+}
+
+
+section img:hover {
+  transform: scale(1.03) translateY(-4px);
+  filter: brightness(1.06);
+  cursor: zoom-in;
+}
+
 
 #primero {
-    background-color: lightsteelblue;
-    text-align:justify;
-    font-size: 1.5rem;
-
-
+  background-color: #FAEEDA;
+  border-color: #EF9F27;
 }
+
+
+#primero h1 {
+  color: #633806;
+   display: inline-block;
+  background: #EF9F27;
+  color: #412402;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 0.85rem;
+}
+
+#primero p {
+  color: #5a3d10;
+}
+
+#primero img {
+  border-color: #FAC775;
+  box-shadow: 0 4px 16px rgba(186, 117, 23, 0.18);
+}
+
 
 #segundo {
-    background-color: rgb(92, 7, 7);
-    text-align:justify;
-    font-size: 1.5rem;
+  background-color: #EEEDFE;
+  border-color: #7F77DD;
 }
+
+
+#segundo h1 {
+  color: #26215C;
+   display: inline-block;
+  background: #534AB7;
+  color: #EEEDFE;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 0.85rem;
+}
+
+#segundo p {
+  color: #3C3489;
+}
+
+#segundo img {
+  border-color: #AFA9EC;
+  box-shadow: 0 4px 16px rgba(83, 74, 183, 0.18);
+}
+
+
 #tercero {
-    background-color: rgb(216, 137, 240);
-    text-align:justify;
-    font-size: 1.5rem;
+  background-color: #E1F5EE;
+  border-color: #1D9E75;
 }
+
+
+
+#tercero h1 {
+  color: #04342C;
+   display: inline-block;
+  background: #1D9E75;
+  color: #E1F5EE;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 0.85rem;
+}
+
+#tercero p {
+  color: #0F6E56;
+}
+
+#tercero img {
+  border-color: #5DCAA5;
+  box-shadow: 0 4px 16px rgba(29, 158, 117, 0.18);
+}
+
+
 footer {
-    background-color: rgb(54, 21, 131);
-    text-align: center;
-    color: white;
-    font-size: 1.5rem;
-    padding: 2rem;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.85rem;
+  color: #888780;
+  border-top: 1px solid #D3D1C7;
+  margin-top: 1rem;
+  background-color: #223380;
+}
+
+@media (max-width: 600px) {
+  header {
+    font-size: 1.4rem;
+    padding: 1.5rem 1rem;
+  }
+
+  section {
+    padding: 1.25rem;
+  }
+
+  section h1 {
+    font-size: 1.1rem;
+  }
 }
