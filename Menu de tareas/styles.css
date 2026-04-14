@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=IM+Fell+English:ital@0;1&display=swap');
+
+/* === Wrapper === */
+.gothic-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* === Card principal === */
+.gothic-card {
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  border: 1.5px solid #6b3fa0;
+  border-radius: 4px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  background: color-mix(in srgb, #ffffff 90%, #2a0a4a 10%);
+}
+
+/* === Esquinas decorativas === */
+.corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: #9b5ec5;
+  border-style: solid;
+}
+.corner-tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.corner-tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+.corner-bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+.corner-br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+/* === Símbolo decorativo === */
+.gothic-skull {
+  font-size: 28px;
+  margin-bottom: 0.25rem;
+  filter: grayscale(0.3);
+}
+
+/* === Título principal === */
+.Title1 {
+  font-family: 'UnifrakturMaguntia', 'IM Fell English', Georgia, serif;
+  font-size: 2rem;
+  color: #c084f5;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin: 0 0 0.4rem;
+  text-shadow: 0 0 18px rgba(160, 100, 220, 0.35);
+}
+
+/* === Subtítulo / nombre === */
+.Title2 {
+  font-family: 'IM Fell English', Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #888;
+  letter-spacing: 0.08em;
+  margin: 0 0 2rem;
+}
+
+/* === Divisor decorativo === */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.divider-line {
+  flex: 1;
+  height: 0.5px;
+  background: linear-gradient(to right, transparent, #6b3fa0, transparent);
+}
+.divider-rune {
+  color: #9b5ec5;
+  font-size: 1rem;
+}
+
+/* === Links de navegación === */
+section a {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0.75rem;
+  border: 0.5px solid rgba(107, 63, 160, 0.35);
+  border-radius: 3px;
+  text-decoration: none;
+  font-family: 'IM Fell English', Georgia, serif;
+  font-size: 1rem;
+  color: #c084f5;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  background: transparent;
+}
+
+section a:hover {
+  background: rgba(107, 63, 160, 0.15);
+  border-color: #9b5ec5;
+  color: #e0b0ff;
+}
+
+/* === Pie de página === */
+.gothic-footer {
+  margin-top: 2rem;
+  font-family: 'IM Fell English', Georgia, serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #aaa;
+  letter-spacing: 0.06em;
+}

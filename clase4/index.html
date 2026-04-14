@@ -50,6 +50,22 @@
       <p>Trabajo de Veronica Romero 2026</p>  
     </footer>
 
+    <script>
+  const imgs = document.querySelectorAll('section img');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  imgs.forEach(img => observer.observe(img));
+</script>
+
 
 </body>
 </html>
