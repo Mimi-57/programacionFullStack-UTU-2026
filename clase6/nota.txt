@@ -1,0 +1,9 @@
+7
+
+Hay varios errores que arreglar, 
+
+Nivel 1- No van iconos(aunque queden bien) y no estan posicionado arriba a la derecha , el hover esta puesta en el contenedor parece y no en cada boton.
+
+Nivel 2 - Afinar un poco la position de los elementos como esta en la imagen
+
+Nive 3 - Categorias se frena, pero se frena unos pixeles mas abajo de lo que deberia
