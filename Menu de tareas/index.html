@@ -1,252 +1,54 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Principal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #0a0608;
-            background-image:
-                radial-gradient(ellipse at 20% 20%, #1a0a14 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, #0d0a1a 0%, transparent 50%),
-                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            font-family: 'IM Fell English', Georgia, serif;
-            overflow-x: hidden;
-        }
-
-        /* Partículas flotantes */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image:
-                radial-gradient(1px 1px at 15% 25%, rgba(180,120,200,0.4) 0%, transparent 100%),
-                radial-gradient(1px 1px at 45% 10%, rgba(140,80,180,0.3) 0%, transparent 100%),
-                radial-gradient(1px 1px at 70% 60%, rgba(200,150,220,0.35) 0%, transparent 100%),
-                radial-gradient(1px 1px at 85% 30%, rgba(160,100,200,0.3) 0%, transparent 100%),
-                radial-gradient(1px 1px at 30% 75%, rgba(180,120,210,0.25) 0%, transparent 100%),
-                radial-gradient(1px 1px at 60% 85%, rgba(140,80,170,0.3) 0%, transparent 100%),
-                radial-gradient(1px 1px at 90% 70%, rgba(190,130,215,0.2) 0%, transparent 100%),
-                radial-gradient(1px 1px at 10% 55%, rgba(160,90,190,0.3) 0%, transparent 100%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .gothic-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            width: 100%;
-            position: relative;
-            z-index: 1;
-        }
-
-        .gothic-card {
-            position: relative;
-            background: linear-gradient(160deg, #130a12 0%, #0e0810 40%, #100c18 100%);
-            border: 1px solid #4a2060;
-            border-radius: 4px;
-            padding: 3rem 3.5rem 2.5rem;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            box-shadow:
-                0 0 0 1px #2a1040,
-                0 0 40px rgba(100,40,140,0.25),
-                0 0 80px rgba(80,20,120,0.1),
-                inset 0 0 60px rgba(80,20,100,0.1);
-        }
-
-        /* Esquinas decorativas */
-        .corner {
-            position: absolute;
-            width: 28px;
-            height: 28px;
-        }
-        .corner::before,
-        .corner::after {
-            content: '';
-            position: absolute;
-            background: #8b4ab8;
-        }
-        .corner::before { width: 100%; height: 1.5px; top: 0; left: 0; }
-        .corner::after  { width: 1.5px; height: 100%; top: 0; left: 0; }
-
-        .corner-tl { top: 10px; left: 10px; }
-        .corner-tr { top: 10px; right: 10px; transform: scaleX(-1); }
-        .corner-bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
-        .corner-br { bottom: 10px; right: 10px; transform: scale(-1); }
-
-        /* Punto en cada esquina */
-        .corner-tl::before { box-shadow: -3px -3px 0 1px #8b4ab8; }
-        .corner-tr::before { box-shadow: 3px -3px 0 1px #8b4ab8; }
-        .corner-bl::before { box-shadow: -3px 3px 0 1px #8b4ab8; }
-        .corner-br::before { box-shadow: 3px 3px 0 1px #8b4ab8; }
-
-        /* Símbolo superior */
-        .gothic-skull {
-            font-size: 1.4rem;
-            color: #c084e0;
-            letter-spacing: 0.5rem;
-            margin-bottom: 1.2rem;
-            display: block;
-            text-shadow: 0 0 12px rgba(180,100,220,0.6);
-        }
-
-        /* Títulos */
-        .Title1 {
-            font-family: 'Cinzel Decorative', serif;
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #e8d5f5;
-            letter-spacing: 0.05em;
-            line-height: 1.4;
-            margin-bottom: 0.6rem;
-            text-shadow: 0 0 20px rgba(180,100,220,0.4);
-        }
-
-        .Title2 {
-            font-family: 'Cinzel', serif;
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: #9b6cbf;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 1.6rem;
-        }
-
-        /* Divisor */
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 2rem;
-        }
-
-        .divider-line {
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #5a2a7a, transparent);
-        }
-
-        .divider-rune {
-            color: #c084e0;
-            font-size: 1.1rem;
-            text-shadow: 0 0 8px rgba(180,100,220,0.7);
-        }
-
-        /* Sección de links */
-        section {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-bottom: 2rem;
-        }
-
-        section a {
-            display: block;
-            font-family: 'Cinzel', serif;
-            font-size: 0.9rem;
-            letter-spacing: 0.12em;
-            color: #c8a0e0;
-            text-decoration: none;
-            padding: 0.75rem 1.5rem;
-            border: 1px solid #3d1a5a;
-            border-radius: 2px;
-            background: rgba(80, 20, 110, 0.12);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        section a::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(140,60,180,0.15), transparent);
-            transition: left 0.4s ease;
-        }
-
-        section a:hover {
-            color: #f0d8ff;
-            border-color: #8b4ab8;
-            background: rgba(100, 30, 140, 0.25);
-            box-shadow:
-                0 0 12px rgba(140,60,180,0.3),
-                inset 0 0 12px rgba(140,60,180,0.1);
-            letter-spacing: 0.18em;
-        }
-
-        section a:hover::before {
-            left: 100%;
-        }
-
-        /* Footer */
-        .gothic-footer {
-            font-family: 'IM Fell English', serif;
-            font-style: italic;
-            font-size: 0.85rem;
-            color: #5a3a70;
-            letter-spacing: 0.1em;
-        }
-
-        /* Línea decorativa superior e inferior de la card */
-        .gothic-card::before,
-        .gothic-card::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(180,100,220,0.4), transparent);
-        }
-        .gothic-card::before { top: 0; }
-        .gothic-card::after  { bottom: 0; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <title> Menu Principal</title>
 </head>
 <body>
-    <div class="gothic-wrapper">
-        <div class="gothic-card">
-            <div class="corner corner-tl"></div>
-            <div class="corner corner-tr"></div>
-            <div class="corner corner-bl"></div>
-            <div class="corner corner-br"></div>
-
-            <span class="gothic-skull">☽ ✦ ☾</span>
-            <h1 class="Title1">Programacion Fullstack 2026</h1>
-            <h3 class="Title2">Veronica Romero</h3>
-
-            <div class="divider">
-                <div class="divider-line"></div>
-                <span class="divider-rune">⸸</span>
-                <div class="divider-line"></div>
-            </div>
-
-            <section>
-                <a href="../clase 1/index.html">✦ Go to Task 1</a>
-                <a href="../clase2/index.html">✦ Go to Task 2</a>
-                <a href="../clase4/index.html">✦ Go to Task 4</a>
-                <a href="../clase5/index.html">✦ Go to Task 5</a>
-            </section>
-
-            <p class="gothic-footer">~ Elige tu camino ~</p>
-        </div>
+   <div class="start-menu">
+    
+    <!-- CABECERA (usuario) -->
+    <div class="xp-header">
+        <span> Veronica Romero</span>
     </div>
+
+    <div class="xp-body">
+        
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="xp-left">
+            <a href="../clase 1/index.html">📁 Tarea 1</a>
+            <a href="../clase2/index.html">📁 Tarea 2</a>
+            <a href="../clase4/index.html">📁 Tarea 4</a>
+            <a href="../clase5/index.html">📁 Tarea 5</a>
+            <a href="../clase6/index.html">📁 Tarea 6</a>
+            <a href="../clase7/index.html">📁 Tarea 7</a>
+            <a href="../clase8/index.html">📁 Tarea 8</a>
+            <a href="../clase9/index.html">📁 Tarea 9</a>
+            <a href="../clase10/index.html">📁 Tarea 10</a>
+        </div>
+
+        <!-- COLUMNA DERECHA -->
+        <div class="xp-right">
+            <a href="#">📄 Mis documentos</a>
+            <a href="#">🖼️ Mis imágenes</a>
+            <a href="#">🎵 Mi música</a>
+            <a href="#">⚙️ Panel de control</a>
+            <a href="#">💻 Mi PC</a>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- FOOTER -->
+    <div class="xp-footer">
+        <button>🔴 Apagar equipo</button>
+    </div>
+
+</div>
+
 </body>
 </html>
