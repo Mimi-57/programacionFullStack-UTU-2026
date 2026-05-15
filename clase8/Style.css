@@ -656,10 +656,6 @@ body {
 }
 
 
-
-
-
-
 @media (max-width: 900px) {
   .product-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -698,3 +694,61 @@ body {
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 0.9rem; }
 }
 
+/* Footer */
+.footer {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.footer-title {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.footer-social-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.35);
+  color: #fff;
+}
+
+.footer-social-btn--whatsapp:hover {
+  background: rgba(37, 211, 102, 0.15);
+  border-color: #25d366;
+  color: #25d366;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: #555;
+  margin: 0;
+}
