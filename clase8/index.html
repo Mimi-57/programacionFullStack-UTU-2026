@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Diseño de uñas profesional - Design by Laly" />
+
+  <title>Design by Laly</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Great+Vibes&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+  <header class="header" id="mainHeader">
+
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo de Design by Laly">
+    </div>
+    
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" id="mainNav">
+      <a href="#home">Home</a>
+      <a href="#products">Store</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </header>
+
+  <section class="hero" id="home">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content reveal">
+      <h1>Design by Gaby</h1>
+
+      <p>
+        Tus manos tambien merecen lucir espectaculares. En Design by Gaby, nos especializamos en el arte de las uñas, ofreciendo servicios de manicura y pedicura de alta calidad. 
+      </p>
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+
+    <h2 class="reveal">Productos que usamos</h2>
+
+    <div class="product-grid">
+
+      <article class="card reveal">
+        <div class="card-image"> <img src="img/pro1.png" width="265"></div>
+
+        <h3>Esmalte de uñas</h3>
+
+        <p>
+         Esmalte de uñas de alta calidad que ofrece una amplia gama de colores vibrantes y duraderos para realzar la belleza de tus manos.
+        </p>
+
+        <a href="#" class="card-btn">Ver más</a>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-image"> <img src="img/pro2.png" width="265" height="300"></div>
+
+        <h3> Acrilico de uñas</h3>
+
+        <p>
+            Acrílico de uñas de primera calidad que proporciona una base fuerte y duradera para crear diseños personalizados y elegantes en tus uñas.
+        </p>
+
+        <a href="#" class="card-btn">Ver más</a>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-image"> <img src="img/pro3.png" width="265" height="300"></div>
+
+        <h3> Lima de uñas</h3>
+
+        <p>
+            Lima de uñas de alta calidad diseñada para dar forma y suavizar las uñas, proporcionando un acabado profesional y cuidado para tus manos.
+        </p>
+
+        <a href="#" class="card-btn">Ver más</a>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-image"> <img src="img/pro4.png" width="265" height="300"></div>
+
+        <h3> Lampara led</h3>
+
+        <p>
+            Lámpara LED de última generación diseñada para secar y curar esmaltes de uñas de gel de manera rápida y eficiente, proporcionando un acabado duradero y profesional.
+        </p>
+
+        <a href="#" class="card-btn">Ver más</a>
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+
+ <section class="container my-5">
+
+    <h2 class="reveal mb-4">
+        Diseños que te pueden interesar
+    </h2>
+
+    <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active"></button>
+
+            <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1"></button>
+
+            <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- Imágenes -->
+        <div class="carousel-inner rounded-4 shadow">
+
+            <div class="carousel-item active">
+                <img src="img/re1.png" class="d-block w-100" alt="Imagen 1">
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/re5.png" class="d-block w-100" alt="Imagen 2">
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/re3.png" class="d-block w-100" alt="Imagen 3">
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/re6.png" class="d-block w-100" alt="Imagen 4">
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/re4.png" class="d-block w-100" alt="Imagen 5">
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/re2.png" class="d-block w-100" alt="Imagen 6">
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/re7.png" class="d-block w-100" alt="Imagen 7">
+            </div>
+
+
+        </div>
+
+        <!-- Botón anterior -->
+        <button class="carousel-control-prev" type="button"
+            data-bs-target="#galleryCarousel"
+            data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"></span>
+
+        </button>
+
+        <!-- Botón siguiente -->
+        <button class="carousel-control-next" type="button"
+            data-bs-target="#galleryCarousel"
+            data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"></span>
+
+        </button>
+
+    </div>
+
+</section>
+
+  <footer class="footer" id="contact">
+
+    <div class="dot active" data-index="0"> <img src="img/flogo.png" width="36" height="36"></div> 
+    <div class="dot" data-index="1"> <img src="img/ilogo.png" width="36" height="36"></div>
+    <div class="dot" data-index="2"> <img src="img/tlogo.png"width="36" height="36"></div>
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+
+    const header = document.getElementById('mainHeader');
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+      },
+      { passive: true }
+    );
+
+    const toggle = document.getElementById('navToggle');
+    const nav = document.getElementById('mainNav');
+
+    toggle.addEventListener('click', () => {
+
+      toggle.classList.toggle('open');
+      nav.classList.toggle('open');
+
+      toggle.setAttribute(
+        'aria-expanded',
+        toggle.classList.contains('open')
+      );
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+
+      link.addEventListener('click', () => {
+
+        toggle.classList.remove('open');
+        nav.classList.remove('open');
+
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15
+      }
+    );
+
+    revealElements.forEach(element => {
+      observer.observe(element);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    dots.forEach(dot => {
+
+      dot.addEventListener('click', () => {
+
+        dots.forEach(d => {
+          d.classList.remove('active');
+        });
+
+        dot.classList.add('active');
+      });
+    });
+
+  </script>
+
+</body>
+</html>
