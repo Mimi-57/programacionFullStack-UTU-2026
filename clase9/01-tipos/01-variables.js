@@ -1,3 +1,3 @@
-let nombre = 'hola mundo';
+let nombre = prompt("Ingresa tu nombre:");
+document.write("Hola " + nombre);
 
-console.log(nombre);
