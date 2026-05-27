@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <header>
+        <h1 id="Title">Chanchito feliz medieval</h1>
+        <button id="btnTitle" type="button">Cambiar titulo</button>
+    </header>
+    <br>
+    <hr>
+    <br>
+    <main>
+        <seccion>
+              <p id="parrafo">
+               El Chanchito feliz medievo está aprendiendo a usar el DOM para cambiar el contenido de esta pagina web.  
+              </p>
+    
+              <button id="btnParrafo" type="button">Cambiar parrafo</button>
+        </seccion>
+        
+        <br>
+        <hr>
+        <br>
+
+        <seccion>
+            <img id="img" src="img/18cc670886e63c1d68dc677ea5491bb2.png" alt="Imagen de una pagina web" width="90px">
+            <br>
+              <button id="btnImg2" type="button">Cambiar imagen</button>
+            <button id="btnImg" type="button">Cambiar imagen</button>
+        </seccion>
+        <br>
+        <hr>
+        <br>
+        <seccion>
+            <h2> Hablemos con Chanchito feliz! </h2>
+
+            <input id="inputMensaje" type="text" placeholder="Habla con Chanchito">
+            
+            <button id="btnMensaje" type="button">Mostrar mensaje</button>
+        </seccion>
+
+        <br>
+        <hr>
+        <br>
+
+        <seccion>
+            <h2> Chanchito quiere poner clases</h2>
+
+            <p id="TextoClase">A este Chanchito se le cambiara el estilo</p>
+
+            <button id="btnAgregarClase" type="button">Agregar clase</button>
+            
+            <button id="btnQuitarClase" type="button">Quitar clase</button>
+        </seccion>
+
+        <br>
+        <hr>
+        <br>
+
+        <seccion>
+            <h2>Modo Oscuro, Chanchito feliz quiere ver lo negro de tu alma! </h2>
+
+            <button id="btnModoOscuro" type="button">
+                Cambiar Tema
+            </button>
+        </seccion>
+        <br><br>
+        <seccion>
+            <h2>Lista dinamica del Chanchito</h2>
+
+            <ul id="LListaDinamica">
+                <li>Patita feliz 1</li>
+                <li>Sapito feliz 2</li>
+                <li>Conejo feliz 3</li>
+            </ul>
+
+            <button id="btnAgregarElemento" type="button">Agregar elemento</button>
+            <br><br> 
+             <button id="btnEliminarElemento" type="button">Eliminar elemento</button>
+        </seccion>
+    </main>
+
+    <br>
+    <hr>
+    <br>
+
+    <seccion>
+        <h2>Chanchito feliz quiere saber mas!</h2>
+
+        <form id="Formulario">
+            <!-- NOMBRE -->
+            <div>
+                <label for="Nombre">
+                    Nombre
+                </label>
+                <input type="text" id="Nombre" placeholder="dile al chanchito tu nombre";>
+            </div>
+
+            <br>
+
+            <!-- COLOR -->
+            <div>
+                <label for="ColorFavorito">
+                    Chanchito quiere saber tu color favorito
+                </label>
+                <input type="color" id="ColorFavorito">
+            </div>
+
+            <br>
+
+            <!-- MENSAJE -->
+            <div>
+                <label for="Mensaje">
+                    Mensaje
+                </label>
+                <textarea id="Mensaje" placeholder="Escribele un mensaje al chanchito"></textarea>
+            </div>
+
+            <br>
+
+            <!-- BOTÓN -->
+            <button type="submit">
+                Enviar
+            </button>
+        </form>
+    </section>
+
+
+    <!-- ERRORES -->
+    <section>
+        <div id="Errores"></div>
+    </section>
+
+
+    <!-- RESULTADOS -->
+    <section>
+        <h2>Resultado</h2>
+        <div id="Resultado"></div>
+    </section>
+</seccion>
+
+    <footer>
+        <p>Pagina hecha por Veronica Romero &copy; 2026</p>
+    </footer>
+
+    <script src="dom.js"></script>
+</body>
+</html>
