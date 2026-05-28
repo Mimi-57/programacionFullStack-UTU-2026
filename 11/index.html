@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería del Chanchito Feliz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="esti.css">
+</head>
+<body>
+
+<header>
+  <div class="logo"> <span>Galería del</span> Chanchito Feliz</div>
+  <div class="header-actions">
+    <button class="btn" id="btnSoloFav"> Solo favoritas</button>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-title"> La galeria del Chanchito feliz.</h1>
+  <p class="page-subtitle">Agregá imágenes, marcalas como favoritas y organizá tu espacio visual.</p>
+
+  <div class="form-panel">
+    <h2>Agregar imagen</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="Titulo">Título</label>
+        <input type="text" id="Titulo" placeholder="Nombre de la imagen">
+      </div>
+      <div class="form-group">
+        <label for="URL">URL de la imagen</label>
+        <input type="text" id="URL" placeholder="https://...">
+      </div>
+      <div class="form-group full">
+        <label for="Descripcion">Descripción</label>
+        <textarea id="Descripcion" placeholder="¿Qué muestra esta imagen?"></textarea>
+      </div>
+    </div>
+    <div class="form-footer">
+      <button class="btn btn-primary" id="btnAgregar">Agregar a la galería</button>
+      <span class="error-msg" id="errorMsg">Completá el título y la URL.</span>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <span id="counter" class="counter"></span>
+  </div>
+
+  <div class="gallery" id="galeria"></div>
+
+</main>
+
+ <footer>
+        <p>Pagina hecha por Veronica Romero &copy; 2026</p>
+    </footer>
+<div class="toast" id="toast"></div>
+
+<script src="11.js"></script>
+</body>
+</html>
