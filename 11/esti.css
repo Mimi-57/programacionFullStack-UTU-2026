@@ -190,8 +190,8 @@ textarea { min-height: 75px; }
 .btn-fav.active { background: var(--pink); border-color: var(--pink); color: #fff; }
 
 .btn-del {
-  width: 32px; height: 32px;
-  border-radius: 50%;
+  width: 70px; height: 32px;
+  border-radius: 20px;
   border: 1px solid var(--pink-light);
   background: var(--cream);
   color: var(--muted);
@@ -242,6 +242,6 @@ footer {
   margin-top: 70px;
   padding: 20px;
   text-align: center;
-  background: #0d3d0b;
+  background: #0b3d21;
   color: white;
 }
