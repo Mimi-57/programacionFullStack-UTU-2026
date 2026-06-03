@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Colección</title>
+
+    <link rel="stylesheet" href="12.css">
+</head>
+<body>
+
+    <header>
+        <h1>Mi Colección</h1>
+
+        <div>
+            <span id="counter">0</span> elementos
+            <button id="theme-btn">Tema</button>
+        </div>
+    </header>
+
+    <section>
+        <h2>Tu colección personal</h2>
+        <p>Guarda videojuegos, películas y series.</p>
+    </section>
+
+    <div class="layout">
+
+        <aside>
+
+            <h2>Agregar elemento</h2>
+
+            <div id="error-msg"></div>
+
+            <label>Nombre</label>
+            <input type="text" id="f-name">
+
+            <label>Descripción</label>
+            <input type="text" id="f-desc">
+
+            <label>Tipo</label>
+            <select id="f-type">
+                <option value="">Seleccionar</option>
+                <option value="Videojuego">Videojuego</option>
+                <option value="Película">Película</option>
+                <option value="Serie">Serie</option>
+                <option value="Otro">Otro</option>
+            </select>
+
+            <label>Estado</label>
+            <select id="f-status">
+                <option value="">Seleccionar</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="En progreso">En progreso</option>
+                <option value="Terminado">Terminado</option>
+            </select>
+
+            <label>Calificación</label>
+            <div id="star-group">
+                <span class="star" data-val="1">★</span>
+                <span class="star" data-val="2">★</span>
+                <span class="star" data-val="3">★</span>
+                <span class="star" data-val="4">★</span>
+                <span class="star" data-val="5">★</span>
+            </div>
+
+            <input type="hidden" id="f-rating" value="0">
+
+            <label>Imagen URL</label>
+            <input type="url" id="f-img">
+
+            <button id="add-btn">Agregar</button>
+
+        </aside>
+
+        <main>
+
+            <div class="filter-bar">
+
+                <button class="filter-btn active" data-filter-type="all">Todos</button>
+                <button class="filter-btn" data-filter-type="Videojuego">Videojuegos</button>
+                <button class="filter-btn" data-filter-type="Película">Películas</button>
+                <button class="filter-btn" data-filter-type="Serie">Series</button>
+                <button class="filter-btn" data-filter-type="Otro">Otros</button>
+
+            </div>
+
+            <div id="collection-grid">
+
+                <div id="empty-state">
+                    <h3>Colección vacía</h3>
+                    <p>Agrega tu primer elemento.</p>
+                </div>
+
+                <div id="no-results">
+                    <p>No se encontraron resultados.</p>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="12.JS"></script>
+
+</body>
+</html>
