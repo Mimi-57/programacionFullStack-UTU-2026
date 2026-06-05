@@ -1,186 +1,244 @@
-// ===== VARIABLES =====
+const collection = [];
+let currentFilter = 'all';
+let selectedRating = 0;
 
-const nameInput = document.getElementById("f-name");
-const descInput = document.getElementById("f-desc");
-const typeInput = document.getElementById("f-type");
-const statusInput = document.getElementById("f-status");
-const imgInput = document.getElementById("f-img");
-const ratingInput = document.getElementById("f-rating");
+/* ── DOM ── */
+const counterEl    = document.getElementById('counter');
+const errorMsg     = document.getElementById('error-msg');
+const grid         = document.getElementById('collection-grid');
+const emptyState   = document.getElementById('empty-state');
+const noResults    = document.getElementById('no-results');
+const addBtn       = document.getElementById('add-btn');
+const themeBtn     = document.getElementById('theme-btn');
+const stars        = document.querySelectorAll('.star');
+const filterBtns   = document.querySelectorAll('.filter-btn');
 
-const addBtn = document.getElementById("add-btn");
-const collectionGrid = document.getElementById("collection-grid");
-const counter = document.getElementById("counter");
+const fName   = document.getElementById('f-name');
+const fDesc   = document.getElementById('f-desc');
+const fType   = document.getElementById('f-type');
+const fStatus = document.getElementById('f-status');
+const fRating = document.getElementById('f-rating');
+const fImg    = document.getElementById('f-img');
 
-const emptyState = document.getElementById("empty-state");
+/* ── Toggle theme ── */
+themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+});
 
-let collection = JSON.parse(localStorage.getItem("collection")) || [];
-
-
-// ===== ESTRELLAS =====
-
-const stars = document.querySelectorAll(".star");
-
+/* ── Estrellas de puntuación ─── */
 stars.forEach(star => {
-    star.addEventListener("click", () => {
+    star.addEventListener('click', () => {
+        selectedRating = parseInt(star.dataset.val);
+        fRating.value = selectedRating;
+        updateStarUI(selectedRating);
+    });
 
-        const value = star.dataset.val;
-
-        ratingInput.value = value;
-
-        stars.forEach(s => {
-            s.classList.remove("active");
-        });
-
-        for(let i = 0; i < value; i++){
-            stars[i].classList.add("active");
-        }
+    star.addEventListener('mouseenter', () => {
+        highlightStars(parseInt(star.dataset.val));
     });
 });
 
+document.getElementById('star-group').addEventListener('mouseleave', () => {
+    updateStarUI(selectedRating);
+});
 
-// ===== GUARDAR =====
-
-function saveCollection() {
-    localStorage.setItem(
-        "collection",
-        JSON.stringify(collection)
-    );
-}
-
-
-// ===== CONTADOR =====
-
-function updateCounter() {
-    counter.textContent = collection.length;
-}
-
-
-// ===== CREAR TARJETAS =====
-
-function renderCollection(filter = "all") {
-
-    collectionGrid.innerHTML = "";
-
-    const filtered = filter === "all"
-        ? collection
-        : collection.filter(item => item.type === filter);
-
-    if(filtered.length === 0){
-
-        collectionGrid.innerHTML = `
-            <div id="empty-state">
-                <h3>No hay elementos</h3>
-            </div>
-        `;
-
-        return;
-    }
-
-    filtered.forEach((item, index) => {
-
-        const card = document.createElement("div");
-
-        card.classList.add("card");
-
-        card.innerHTML = `
-            ${item.image ? `<img src="${item.image}" alt="${item.name}">` : ""}
-
-            <h3>${item.name}</h3>
-
-            <p>${item.description}</p>
-
-            <p><strong>Tipo:</strong> ${item.type}</p>
-
-            <p><strong>Estado:</strong> ${item.status}</p>
-
-            <p><strong>★</strong> ${item.rating}/5</p>
-
-            <button onclick="deleteItem(${index})">
-                Eliminar
-            </button>
-        `;
-
-        collectionGrid.appendChild(card);
+function highlightStars(n) {
+    stars.forEach(s => {
+        s.classList.toggle('active', parseInt(s.dataset.val) <= n);
     });
 }
 
+function updateStarUI(n) {
+    stars.forEach(s => {
+        s.classList.toggle('active', parseInt(s.dataset.val) <= n);
+    });
+}
 
-// ===== AGREGAR =====
+function resetStars() {
+    selectedRating = 0;
+    fRating.value = 0;
+    updateStarUI(0);
+}
 
-addBtn.addEventListener("click", () => {
+/* ── Filtros ─── */
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filterType;
+        renderGrid();
+    });
+});
 
-    if(
-        !nameInput.value ||
-        !typeInput.value ||
-        !statusInput.value
-    ){
-        alert("Completa los campos obligatorios");
-        return;
-    }
+/* ── Mostrar error ──── */
+function showError(msg) {
+    errorMsg.textContent = msg;
+    errorMsg.classList.add('visible');
+    // Re-trigger animation
+    errorMsg.style.animation = 'none';
+    void errorMsg.offsetWidth;
+    errorMsg.style.animation = '';
+    setTimeout(() => errorMsg.classList.remove('visible'), 3000);
+}
+
+/* ── Agregar elemento ─── */
+addBtn.addEventListener('click', () => {
+    const name   = fName.value.trim();
+    const desc   = fDesc.value.trim();
+    const type   = fType.value;
+    const status = fStatus.value;
+    const rating = parseInt(fRating.value) || 0;
+    const img    = fImg.value.trim();
+
+    if (!name)   return showError('El nombre es obligatorio.');
+    if (!type)   return showError('Elegí un tipo.');
+    if (!status) return showError('Elegí un estado.');
 
     const item = {
-
-        name: nameInput.value,
-        description: descInput.value,
-        type: typeInput.value,
-        status: statusInput.value,
-        rating: ratingInput.value,
-        image: imgInput.value
+        id: Date.now(),
+        name,
+        desc,
+        type,
+        status,
+        rating,
+        img
     };
 
     collection.push(item);
-
-    saveCollection();
     updateCounter();
-    renderCollection();
-
-    nameInput.value = "";
-    descInput.value = "";
-    typeInput.value = "";
-    statusInput.value = "";
-    imgInput.value = "";
-    ratingInput.value = "0";
-
-    stars.forEach(star => {
-        star.classList.remove("active");
-    });
+    renderGrid();
+    clearForm();
 });
 
-
-// ===== ELIMINAR =====
-
-function deleteItem(index){
-
-    collection.splice(index, 1);
-
-    saveCollection();
-    updateCounter();
-    renderCollection();
+/* ── Limpiar formulario ─── */
+function clearForm() {
+    fName.value   = '';
+    fDesc.value   = '';
+    fType.value   = '';
+    fStatus.value = '';
+    fImg.value    = '';
+    resetStars();
 }
 
+/* ── Contador ── */
+function updateCounter() {
+    counterEl.textContent = collection.length;
+}
 
-// ===== FILTROS =====
+/* ── Ciclo de estados ─── */
+const statusCycle = ['Pendiente', 'En progreso', 'Terminado'];
 
-const filterButtons = document.querySelectorAll("[data-filter-type]");
+function cycleStatus(id) {
+    const item = collection.find(i => i.id === id);
+    if (!item) return;
+    const idx = statusCycle.indexOf(item.status);
+    item.status = statusCycle[(idx + 1) % statusCycle.length];
+    renderGrid();
+}
 
-filterButtons.forEach(button => {
+/* ── Borrar elemento ─── */
+function deleteItem(id) {
+    const card = document.querySelector(`[data-id="${id}"]`);
+    if (card) {
+        card.classList.add('removing');
+        card.addEventListener('animationend', () => {
+            const idx = collection.findIndex(i => i.id === id);
+            if (idx !== -1) collection.splice(idx, 1);
+            updateCounter();
+            renderGrid();
+        }, { once: true });
+    }
+}
+/* ── Emoji por tipo ─── */
+function typeEmoji(type) {
+    const map = {
+        'Videojuego': '🎮',
+        'Película':   '🎬',
+        'Serie':      '📺',
+        'Otro':       '✦',
+    };
+    return map[type] || '◈';
+}
 
-    button.addEventListener("click", () => {
+/* ── Estrellas de puntuación ──── */
+function starsString(n) {
+    return '★'.repeat(n) + '☆'.repeat(5 - n);
+}
 
-        filterButtons.forEach(btn => {
-            btn.classList.remove("active");
-        });
+/* ── Render grid─── */
 
-        button.classList.add("active");
+function renderGrid() {
+    // borra las tarjetas(keep empty-state and no-results)
+    const existingCards = grid.querySelectorAll('.card');
+    existingCards.forEach(c => c.remove());
 
-        renderCollection(
-            button.dataset.filterType
-        );
+    const filtered = currentFilter === 'all'
+        ? collection
+        : collection.filter(i => i.type === currentFilter);
+
+    
+    emptyState.style.display    = collection.length === 0 ? 'block' : 'none';
+    noResults.style.display     = collection.length > 0 && filtered.length === 0 ? 'block' : 'none';
+
+    filtered.forEach((item, index) => {
+        const card = buildCard(item, index);
+        grid.appendChild(card);
     });
-});
+}
 
+/* ── Cartitas ─── */
+function buildCard(item, index) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.id = item.id;
+    card.style.animationDelay = `${index * 40}ms`;
 
-// ===== INICIO =====
+    const statusClass = item.status.replace(' ', '.');
 
-updateCounter();
-renderCollection();
+    card.innerHTML = `
+        ${item.img
+            ? `<img class="card-img" src="${escapeAttr(item.img)}" alt="${escapeAttr(item.name)}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+               <div class="card-img-placeholder" style="display:none;">${typeEmoji(item.type)}</div>`
+            : `<div class="card-img-placeholder">${typeEmoji(item.type)}</div>`
+        }
+        <div class="card-body">
+            <div class="card-meta">
+                <span class="card-type">${escapeHTML(item.type)}</span>
+                ${item.rating > 0 ? `<span class="card-stars" title="${item.rating}/5">${starsString(item.rating)}</span>` : ''}
+            </div>
+            <div class="card-title">${escapeHTML(item.name)}</div>
+            ${item.desc ? `<div class="card-desc">${escapeHTML(item.desc)}</div>` : ''}
+        </div>
+        <div class="card-footer">
+            <span class="status-badge status-${statusClass}" data-status="${escapeAttr(item.status)}" title="Clic para cambiar estado">${escapeHTML(item.status)}</span>
+            <button class="delete-btn" title="Eliminar">✕</button>
+        </div>
+    `;
+
+    // Status click
+    card.querySelector('.status-badge').addEventListener('click', () => {
+        cycleStatus(item.id);
+    });
+
+    // Delete click
+    card.querySelector('.delete-btn').addEventListener('click', () => {
+        deleteItem(item.id);
+    });
+
+    return card;
+}
+
+/* ── Escape helpers ─── */
+function escapeHTML(str) {
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function escapeAttr(str) {
+    return String(str).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+renderGrid(); 
