@@ -190,8 +190,13 @@ textarea { min-height: 75px; }
 .btn-fav.active { background: var(--pink); border-color: var(--pink); color: #fff; }
 
 .btn-del {
+<<<<<<< HEAD:clase 11/esti.css
   width: 70px; height: 32px;
   border-radius: 20px;
+=======
+  width: 50px; height: 70px;
+  border-radius: 30%;
+>>>>>>> 80b702911fec4974a8de8b97e41c0270b0c79693:11/esti.css
   border: 1px solid var(--pink-light);
   background: var(--cream);
   color: var(--muted);
