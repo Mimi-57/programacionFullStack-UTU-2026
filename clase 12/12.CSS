@@ -357,7 +357,7 @@ select option { background: var(--surface2); }
 #error-msg.visible { display: block; }
 
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
+    0%, 100% { transform: translateX(0);}
     25% { transform: translateX(-6px); }
     75% { transform: translateX(6px); }
 }
@@ -560,7 +560,6 @@ select option { background: var(--surface2); }
     line-height: 1;
     flex-shrink: 0;
 }
-
 .delete-btn:hover {
     background: rgba(255,68,102,0.1);
     border-color: rgba(255,68,102,0.3);
