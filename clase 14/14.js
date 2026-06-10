@@ -1,3 +1,11 @@
+const light = document.getElementById("light");
+const body = document.body;
+
+light.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+});
+
+
 let botonTraerImagen = document.querySelector("#load-cat");
 let imagenGatito = document.querySelector("#gatitos");
 let botonMeGusta = document.querySelector("#like");
