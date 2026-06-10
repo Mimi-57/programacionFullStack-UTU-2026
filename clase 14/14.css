@@ -1,0 +1,31 @@
+/*esto es el modo oscuro profe */
+
+
+#light {
+    padding:  10px 20px;
+    background-color: rgb(243, 133, 216);
+    border-radius:10px;
+    cursor: pointer;
+}
+/* carga de los gatos*/
+
+#Cat-loading {
+    margin-top: 15px;
+    font-weight: bold;
+    background-color: plum;
+    padding: 10px;
+    width: auto;
+    height: 250px;
+    border-radius: 10px;
+    display: flex;
+}
+
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgb(230, 222, 222);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
