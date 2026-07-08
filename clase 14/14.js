@@ -1,3 +1,4 @@
+
 const lightDarkBtn = document.getElementById("lightdark");
 const body = document.body;
 
@@ -16,8 +17,7 @@ let contadorNoGustar = document.querySelector("#contadornogustar");
 
 /*---------------------------------------------------------------------*/
 
-const API_KEY = "live_XwCyGHN3OEVBlXwzPIWqHJq3LD0kF0r42DzpvYE8q3Xei9aUQoM0VMyZB3RglHBw";
-
+const API_KEY = "live_fZ6mhsha3yru38ml67Cw7BMho5lyPvgo8WG5Nvj6OHaw0dflxpKNLX9UgcPO3TuA";
 /*---------------------------------------------------------------------*/
 
 let gusta = 0;
@@ -31,7 +31,7 @@ async function traerGato() {
 
     try {
         let response = await fetch(
-            "https://api.thecatapi.com/v1/images/search"
+            "https://api.thecatapi.com/v1/images/search",
         );
         if (!response.ok) {
             throw new Error("Error al obtener la imagen");

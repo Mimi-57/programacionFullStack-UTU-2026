@@ -1,31 +1,282 @@
-/*esto es el modo oscuro profe */
+/* ============================================
+   Cat Archive — estilo tierno, rosas y azules pastel
+   ============================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Nunito:wght@400;600;700&display=swap');
 
-#light {
-    padding:  10px 20px;
-    background-color: rgb(243, 133, 216);
-    border-radius:10px;
-    cursor: pointer;
+:root {
+    /* paleta pastel */
+    --crema: #fff8f6;
+    --rosa-suave: #ffd9e6;
+    --rosa-fuerte: #ff9ec7;
+    --azul-suave: #cdeaf7;
+    --azul-fuerte: #8fd0ea;
+    --texto: #5b4a5c;
+    --texto-suave: #8a7a8c;
+    --blanco: #ffffff;
+    --sombra: rgba(255, 158, 199, 0.25);
+
+    /* modo oscuro (paleta) */
+    --dark-bg: #2b2438;
+    --dark-card: #3a3149;
+    --dark-texto: #f3e6f0;
+    --dark-rosa: #ff9ec7;
+    --dark-azul: #8fd0ea;
 }
-/* carga de los gatos*/
 
-#Cat-loading {
-    margin-top: 15px;
-    font-weight: bold;
-    background-color: plum;
-    padding: 10px;
-    width: auto;
-    height: 250px;
-    border-radius: 10px;
-    display: flex;
+* {
+    box-sizing: border-box;
 }
 
-#navbar{
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--crema) 0%, var(--azul-suave) 45%, var(--rosa-suave) 100%);
+    background-attachment: fixed;
+    font-family: 'Nunito', sans-serif;
+    color: var(--texto);
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ---------- header ---------- */
+header {
+    padding: 1.2rem 1.5rem;
+}
+
+#navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: rgb(230, 222, 222);
-    border-radius: 10px;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#navbar h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    color: var(--rosa-fuerte);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+#navbar h1::before {
+    content: "🐾 ";
+}
+
+#lightdark {
+    background: var(--blanco);
+    border: 2px solid var(--rosa-suave);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px var(--sombra);
+    transition: transform 0.25s ease, background 0.3s ease;
+}
+
+#lightdark:hover {
+    transform: rotate(20deg) scale(1.08);
+    background: var(--azul-suave);
+}
+
+#icono {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--rosa-fuerte);
+}
+
+/* ---------- main / card ---------- */
+main {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 1.2rem 3rem;
+}
+
+main > section {
+    background: var(--blanco);
+    border-radius: 28px;
+    padding: 2rem 1.8rem 2.2rem;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 12px 30px var(--sombra);
+    border: 2px solid var(--rosa-suave);
+}
+
+#cat-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#cat-loading {
+    width: 260px;
+    height: 260px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--azul-suave);
+    border: 4px solid var(--rosa-suave);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 0 4px var(--blanco);
+}
+
+#catImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ---------- contadores ---------- */
+#likes-panel {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.counter-box {
+    background: linear-gradient(135deg, var(--rosa-suave), var(--azul-suave));
+    border-radius: 18px;
+    padding: 0.6rem 1.1rem;
+    min-width: 100px;
+    box-shadow: 0 4px 10px var(--sombra);
+}
+
+.counter-box p {
+    margin: 0 0 0.2rem;
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    font-weight: 600;
+}
+
+.counter-box span {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.6rem;
+    color: var(--texto);
+}
+
+/* ---------- botones ---------- */
+#buttons-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+#buttons-section button {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.7rem 1.4rem;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--blanco);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#buttons-section button:hover {
+    transform: translateY(-2px) scale(1.03);
+}
+
+#catbutton {
+    background: linear-gradient(135deg, var(--azul-fuerte), var(--azul-suave));
+    box-shadow: 0 6px 14px rgba(143, 208, 234, 0.45);
+}
+
+#catbuttonGustar {
+    background: linear-gradient(135deg, var(--rosa-fuerte), var(--rosa-suave));
+    box-shadow: 0 6px 14px var(--sombra);
+}
+
+#catbuttonNoGustar {
+    background: linear-gradient(135deg, #b8a6c9, #d9c9e6);
+    box-shadow: 0 6px 14px rgba(184, 166, 201, 0.4);
+}
+
+/* ---------- footer ---------- */
+footer {
+    text-align: center;
+    padding: 1rem;
+}
+
+#copyright {
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+}
+
+/* ============================================
+   Modo oscuro
+   (asumiendo que 14.js agrega la clase "dark-mode" al body;
+   si el nombre real es otro, cambiar el selector abajo)
+   ============================================ */
+body.dark-mode {
+    background: linear-gradient(160deg, var(--dark-bg) 0%, #342b45 100%);
+    color: var(--dark-texto);
+}
+
+body.dark-mode #navbar h1 {
+    color: var(--dark-rosa);
+}
+
+body.dark-mode #lightdark {
+    background: var(--dark-card);
+    border-color: var(--dark-rosa);
+}
+
+body.dark-mode #icono {
+    color: var(--dark-rosa);
+}
+
+body.dark-mode main > section {
+    background: var(--dark-card);
+    border-color: #4d4160;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode #cat-loading {
+    background: #4d4160;
+    border-color: var(--dark-azul);
+    box-shadow: inset 0 0 0 4px var(--dark-card);
+}
+
+body.dark-mode .counter-box {
+    background: linear-gradient(135deg, #4d4160, #3a3149);
+}
+
+body.dark-mode .counter-box p {
+    color: #c9b8d1;
+}
+
+body.dark-mode .counter-box span {
+    color: var(--dark-texto);
+}
+
+body.dark-mode #copyright {
+    color: #b39dc0;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 480px) {
+    #cat-loading {
+        width: 200px;
+        height: 200px;
+    }
+
+    #navbar h1 {
+        font-size: 1.4rem;
+    }
+
+    #buttons-section button {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.1rem;
+    }
 }
