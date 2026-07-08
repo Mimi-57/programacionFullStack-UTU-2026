@@ -1,27 +1,48 @@
-const light = document.getElementById("light");
+const lightDarkBtn = document.getElementById("lightdark");
 const body = document.body;
 
-light.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
+lightDarkBtn.addEventListener("click", function () {
+    body.classList.toggle("light-mode");
 });
 
+/*---------------------------------------------------------------------*/
 
-let botonTraerImagen = document.querySelector("#load-cat");
-let imagenGatito = document.querySelector("#gatitos");
-let botonMeGusta = document.querySelector("#like");
-let botonNoMeGusta = document.querySelector("#dislike");
-let contadorMeGusta = document.querySelector(".cont-like");
-let contadorNoMeGusta = document.querySelector(".cont-dislike");
-let mensajeError = document.querySelector(".error");
+let catButton = document.querySelector("#catbutton");
+let catbuttonGustar = document.querySelector("#catbuttonGustar");
+let catbuttonNoGustar = document.querySelector("#catbuttonNoGustar");
+let gatitos = document.querySelector("#catImage");
+let contadorGustar = document.querySelector("#contadorgustar");
+let contadorNoGustar = document.querySelector("#contadornogustar");
 
-botonTraerImagen.addEventListener("click", async() => { 
-    let response = await fetch("https://api.thecatapi.com/v1/images/search");
-    let data = await response.json();
+/*---------------------------------------------------------------------*/
 
-    console.log(data);
+const API_KEY = "live_XwCyGHN3OEVBlXwzPIWqHJq3LD0kF0r42DzpvYE8q3Xei9aUQoM0VMyZB3RglHBw";
 
-    let imagen = data[0].url;
+/*---------------------------------------------------------------------*/
 
-    imagenGatito.src = imagen;  
-})
+let gusta = 0;
+let noGusta = 0;
 
+let idImagenActual = "";
+
+/*---------------------------------------------------------------------*/
+
+async function traerGato() {
+
+    try {
+        let response = await fetch(
+            "https://api.thecatapi.com/v1/images/search"
+        );
+        if (!response.ok) {
+            throw new Error("Error al obtener la imagen");
+        }
+        let data = await response.json();
+        console.log("data:", data);
+        gatitos.src = data[0].url;
+        idImagenActual = data[0].id;
+        console.log("ID de la imagen:", idImagenActual);
+
+    } catch (error) {
+        console.error(error);
+        alert("No se pudo cargar la imagen del gato.");
+    }}
