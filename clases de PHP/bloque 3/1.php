@@ -9,11 +9,11 @@ if ($numero1 == $numero2){
 
 if  ($numero1 > $numero2){
 
-    echo "El primer numero es mayor";
+    echo "El primer numero es mayo";
 }
 
 if  ($numero2 > $numero1){
 
-    echo "El segundo numero es mayor";
+    echo "El segundo numero es mayo";
 }
 ?>
