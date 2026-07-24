@@ -7,13 +7,12 @@ if ($numero1 == $numero2){
     echo "Los numeros son iguales";
 }
 
-if  ($numero1 > $numero2){
+else if  ($numero1 > $numero2){
 
-    echo "El primer numero es mayo";
+    echo "El primer numero es mayor";
 }
+else {
 
-if  ($numero2 > $numero1){
-
-    echo "El segundo numero es mayo";
+    echo "El segundo numero es mayor";
 }
 ?>
