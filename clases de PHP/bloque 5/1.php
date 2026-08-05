@@ -8,4 +8,4 @@ if ($ususarioingresado == "admin" && $contraseñaingresada == "1234") {
 } else {
     echo " Saquenme a èsta igualada de acà";
 }
-?>
+?> 
