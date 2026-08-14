@@ -7,4 +7,7 @@ $persona = [
 
 echo "Mi nombre es" . $persona["nombre"] . ", tengo" . $persona["edad"] . " años y vivo en " . $persona["ciudad"] . ".";
 
+
+
+
 ?>
