@@ -1,9 +1,11 @@
-$productos = [
+<?php 
+
+productos = [
     ["nombre" => "Teclado",
      "precio" => 1200],
     ["nombre" => "Mouse",
      "precio" => 800],
-    ["nombre" => "ASUS TUF Gaming A16",
+    ["nombre" => "ceibalita",
      "precio" => 2000]
 ];
 

@@ -12,7 +12,7 @@ $productos = [
         "stock" => 7
     ],
     [
-        "nombre" => "ASUS TUF Gaming A16",
+        "nombre" => "Ceibalita",
         "precio" => 1900,
         "stock" => 0
     ]
