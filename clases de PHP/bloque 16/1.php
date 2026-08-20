@@ -1,6 +1,6 @@
 <?php 
 
-productos = [
+$productos = [
     ["nombre" => "Teclado",
      "precio" => 1200],
     ["nombre" => "Mouse",
